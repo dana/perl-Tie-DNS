@@ -10,7 +10,7 @@ eval {
     );
     if ($s) {
         close($s);
-        open( ENABLED, '>t/online.enabled' )
+        open( ENABLED, '>t/online.enabled' ) 
           or die "Can't touch ./t/online.enabled: $!";
         close(ENABLED) or die "Can't touch t/online.enabled: $!";
     }
