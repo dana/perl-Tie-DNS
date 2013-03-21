@@ -18,3 +18,5 @@ t/99testmanifest.t
 t/01basic.t
 t/02usage.t
 lib/Tie/DNS.pm
+META.json
+META.yml
