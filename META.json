@@ -1,0 +1,56 @@
+{
+   "abstract" : "Easy to use interface to the excellent Net::DNS Perl module",
+   "author" : [
+      "Dana M. Diederich <dana@realms.org>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.120630",
+   "license" : [
+      "perl"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Tie-DNS",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Test::More" : 0
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Net::DNS" : "0.12",
+            "Tie::Cache" : "0.1"
+         }
+      }
+   },
+   "provides" : {
+      "Tie::DNS" : {
+         "file" : "lib/Tie/DNS.pm",
+         "version" : "0.62"
+      }
+   },
+   "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/dana/Tie--DNS/issues"
+      },
+      "license" : [
+         "http://dev.perl.org/licenses/"
+      ],
+      "homepage" : "https://metacpan.org/module/Tie::DNS",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/dana/Tie--DNS.git",
+         "web" : "https://metacpan.org/module/Tie::DNS"
+      }
+   },
+   "version" : "0.62"
+}

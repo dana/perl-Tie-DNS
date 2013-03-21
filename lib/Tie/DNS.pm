@@ -542,7 +542,7 @@ Change various arguments to the tie on the fly.
 
 =head1 TODO
 
-This 0.61 release supports the basic functionality of 
+This 0.62 release supports the basic functionality of 
 Net::DNS.  The 1.0 release will support the following:
 
 Different access methods for forward and reverse lookups.
@@ -555,7 +555,8 @@ Dana M. Diederich <dana@realms.org>
 
 =head1 ACKNOWLEDGMENTS
 
-kevin brintnall <kbrint@rufus.net> for Caching patch
+kevin Brintnall <kbrint@rufus.net> for Caching patch
+Alvar Freude <alvar@a-blast.org> for arguments to resolver patch
 
 =head1 BUGS
 
@@ -564,7 +565,7 @@ in-addr.arpa zone transfers aren't yet supported.
 Patches, flames, opinions, enhancement ideas are all welcome.
 
 =head1 COPYRIGHT 
-Copyright (c) 2009, Dana M. Diederich. All Rights Reserved.
+Copyright (c) 2009,2013 Dana M. Diederich. All Rights Reserved.
 This module is free software. It may be used, redistributed
 and/or modified under the terms of the Perl Artistic License
   (see http://www.perl.com/perl/misc/Artistic.html)

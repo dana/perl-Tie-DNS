@@ -1,0 +1,26 @@
+---
+abstract: 'Fast, simple message matching'
+author:
+  - 'Dana M. Diederich <dana@realms.org>'
+build_requires:
+  Test::More: 0
+configure_requires:
+  Module::Build: 0
+dynamic_config: 1
+generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.120630'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Tie-DNS
+provides:
+  Tie::DNS:
+    file: lib/Tie/DNS.pm
+    version: 0.62
+requires:
+resources:
+  license: http://dev.perl.org/licenses/
+  bugtracker: https://github.com/dana/Tie--DNS/issues
+  homepage: https://metacpan.org/module/Tie::DNS
+  repository: git://github.com/dana/Tie--DNS.git
+version: 0.62
