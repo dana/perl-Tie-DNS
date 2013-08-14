@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Net::DNS;
 
-our $VERSION = '0.62';
+our $VERSION = '0.63';
 
 my %config_rec_defaults = (
     'AAAA'   => 'address',
@@ -365,10 +365,6 @@ __END__
 =head1 NAME
 
 Tie::DNS - Tie interface to Net::DNS
-
-=head1 VERSION
-
-This document describes version 0.5 of Tie::DNS, released February 28, 2008
 
 =head1 SYNOPSIS
 
