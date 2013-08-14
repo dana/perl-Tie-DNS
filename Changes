@@ -1,4 +1,7 @@
-Revision history for Perl extension Tie::DNS
+{{$NEXT}}
+
+1.132260  2013-08-13 21:15:05 America/Los_Angeles
+    - Additional automation using Dist::Zilla
 
 0.63 Tue Aug 13 20:07:45 PDT 2013
     - Move to Dist::Zilla

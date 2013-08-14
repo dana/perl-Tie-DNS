@@ -4,8 +4,6 @@ use strict;
 use warnings;
 use Net::DNS;
 
-our $VERSION = '0.63';
-
 my %config_rec_defaults = (
     'AAAA'   => 'address',
     'AFSDB'  => 'subtype',
