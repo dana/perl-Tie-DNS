@@ -543,7 +543,7 @@ Change various arguments to the tie on the fly.
 
 =head1 TODO
 
-This 0.62 release supports the basic functionality of 
+This release supports the basic functionality of 
 Net::DNS.  The 1.0 release will support the following:
 
 Different access methods for forward and reverse lookups.
