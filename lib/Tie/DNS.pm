@@ -4,6 +4,12 @@ use strict;
 use warnings;
 use Net::DNS;
 
+my $NEW_NETDNS = 0;
+if (Net::DNS->version >= 0.69) {
+    use Socket;
+    $NEW_NETDNS = 1;
+}
+
 my %config_rec_defaults = (
     'AAAA'   => 'address',
     'AFSDB'  => 'subtype',
@@ -326,19 +332,27 @@ sub _lookup_to_thing {
                 foreach
                   my $field ( @{ $config_type{ $self->{'lookup_type'} } } )
                 {
-                    $fields{$field} = $rr->{$field};
+                    if ($NEW_NETDNS and $field eq 'address') {
+                        $fields{$field} = inet_ntoa($rr->{$field});
+                    }
+                    else {
+                        $fields{$field} = $rr->{$field};
+                    }
                 }
                 push( @retvals, \%fields );
             }
             else {
-                push(
-                    @retvals,
-                    $rr->{
-                        $config_rec_defaults{ $self->{'lookup_type'} }
-
-                          #					$config_type{$self->{'lookup_type'}}[0]
-                      }
-                );
+                if ($NEW_NETDNS and $config_rec_defaults{ $self->{'lookup_type'} } eq 'address') {
+                    push ( @retvals, inet_ntoa($rr->{$config_rec_defaults{ $self->{'lookup_type'} } }));
+                }
+                else {
+                    push(
+                        @retvals,
+                        $rr->{
+                            $config_rec_defaults{ $self->{'lookup_type'} }
+                        }
+                    );
+                }
             }
         }
     }
