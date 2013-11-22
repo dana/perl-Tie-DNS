@@ -1,4 +1,6 @@
-{{$NEXT}}
+{{$NEXT}} Thu Nov 21 19:48:36 PST 2013
+    - Fixes to support Net::DNS >= 0.69 thanks to Greg Myran<gmyran@drchico.net>
+    - Lots of formatting changes
 
 1.132260  2013-08-13 21:15:05 America/Los_Angeles
     - Additional automation using Dist::Zilla
