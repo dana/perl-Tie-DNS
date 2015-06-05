@@ -91,7 +91,7 @@ sub TIEHASH {
     my $self = {};
     bless $self, $class;
     
-    $self->{'dns'} = new Net::DNS::Resolver(%{($args->{resolver_args} || {})});
+    $self->{'dns'} = Net::DNS::Resolver->new(%{($args->{resolver_args} || {})});
 
     $self->args($args);
 
@@ -106,12 +106,12 @@ sub STORE {
     my $root_server = $self->get_root_server
         or die 'Dynamic update attempted but no (or bad) domain specified.';
 
-    my $update = new Net::DNS::Update($self->_get_arg('domain'));
+    my $update = Net::DNS::Update->new($self->_get_arg('domain'));
     my $update_string = sprintf('%s. %s %s %s',
         $key, $self->{'ttl'}, $self->{'lookup_type'}, $value);
     $update->push('update', rr_add($update_string));
 
-    my $res = new Net::DNS::Resolver(%{($self->args->{resolver_args} || {})});
+    my $res = Net::DNS::Resolver->new(%{($self->args->{resolver_args} || {})});
     $res->nameservers($root_server);
     my $reply = $res->send($update);
     if (defined $reply) {
