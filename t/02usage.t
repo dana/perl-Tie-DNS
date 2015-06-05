@@ -6,13 +6,10 @@ use Test::More;
 use lib 'lib';
 
 BEGIN {
-    if ( -e 't/online.enabled' ) {
+    if ( $ENV{ONLINE_ENABLED} ) {
         plan tests => 9;
-        unlink 't/online.enabled';
-    }
-    else {
+    } else {
         plan skip_all => 'Online tests disabled.';
-        unlink 't/online.enabled';
         exit;
     }
 }
