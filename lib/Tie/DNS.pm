@@ -1,7 +1,6 @@
+use strict; use warnings;
 package Tie::DNS;
 use Carp;
-use strict;
-use warnings;
 use Socket;
 use Net::DNS;
 
