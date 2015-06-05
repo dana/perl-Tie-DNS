@@ -1,5 +1,6 @@
 #!/usr/bin/perl -w
 
+use strict;use warnings;
 use Tie::DNS;
 
 my $type = shift or die("lookup type required.");
