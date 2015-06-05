@@ -424,7 +424,7 @@ Net::DNS supported record types causes all FETCHes to
 get records of that type.
 
     tie %dns, 'Tie::DNS', {
-        multiple' => 'true',
+        multiple => 'true',
         type => 'SOA'
     };
 
