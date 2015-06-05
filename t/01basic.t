@@ -1,8 +1,6 @@
 #!/usr/bin/perl -w
 
-use strict;
-use Test;
+use strict; use warnings;
+use Test::More tests => 1;
 
-BEGIN { plan tests => 1 }
-
-ok( eval { require Tie::DNS; 1 } );
+use_ok 'Tie::DNS';
