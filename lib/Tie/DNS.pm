@@ -119,11 +119,11 @@ sub STORE {
             return $value;
         } else {
             $self->{'errstring'} = $self->{'dns'}->errorstring;
-            return undef;
+            return 0;
         }
     } else {
         $self->{'errstring'} = $self->{'dns'}->errorstring;
-        return undef;
+        return 0;
     }
 }
 
@@ -150,7 +150,7 @@ sub FIRSTKEY {
     my @full_zone = $self->{'dns'}->axfr($self->{'root_name_server'});
     if (scalar(@full_zone) == 0) {
         $self->{'errstring'} = $self->{'dns'}->errorstring;
-        return undef;
+        return 0;
     }
 
     my @zone;
@@ -166,7 +166,7 @@ sub NEXTKEY {
     my $self = shift;
     my @zone = @{$self->{'zone'}};
     if (scalar(@zone) == 0) {
-        return undef;
+        return 0;
     }
     my $rr = shift(@zone);
     $self->{'zone'} = \@zone;
@@ -252,7 +252,7 @@ sub get_root_server {
 sub _get_arg {
     my $self = shift;
     my $arg_name = shift;
-    return undef unless defined $self->{'args'};
+    return 0 unless defined $self->{'args'};
 
     return $self->{'args'}{$arg_name};
 }
@@ -270,7 +270,7 @@ sub do_reverse_lookup {
         }
     } else {
         $self->{'errstring'} = $self->{'dns'}->errorstring;
-        return undef;
+        return 0;
     }
     if (defined $self->_get_arg('multiple')) {
         return \@retvals;
