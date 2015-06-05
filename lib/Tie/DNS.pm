@@ -392,7 +392,7 @@ See Above.
 Get all of the A records from 'foo.com'.  (Sorry foo.com if
 everyone hits your name server testing this module.  :-)
 
-    tie %dns, 'Tie::DNS', {Domain => 'foo.com'};
+    tie my %dns, 'Tie::DNS', {Domain => 'foo.com'};
 
     while (my ($name, $ip) = each %dns) {
         print "$name = $ip\n";
@@ -423,7 +423,7 @@ Pass the configuration parameter of 'type' to one of the
 Net::DNS supported record types causes all FETCHes to
 get records of that type.
 
-    tie %dns, 'Tie::DNS', {
+    tie my %dns, 'Tie::DNS', {
         multiple => 'true',
         type => 'SOA'
     };
@@ -451,7 +451,7 @@ types and a comprehensive list of all available types.
 
 =head2 Fetching all of the fields associated with a given record type.
 
-    tie %dns, 'Tie::DNS', {type => 'SOA'};
+    tie my %dns, 'Tie::DNS', {type => 'SOA', all_fields => 'true'};
 
     my $dns_ref = $dns{'cnn.com'};
     foreach my $field (keys %{$dns_ref}) {
@@ -468,13 +468,13 @@ is no caching.  The 'cache' argument is passed through to L<Tie::Cache>.
 If L<Tie::Cache> cannot be loaded, caching will be disabled.  Entries
 whose DNS TTL has expired will be re-queried automatically.
 
-    tie %dns, 'Tie::DNS', {cache => 100};
+    tie my %dns, 'Tie::DNS', {cache => 100};
     print "$dns{'cnn.com'}\n";
     print "$dns{'cnn.com'}\n";  ## cached!
 
 =head2 Getting all/different fields associated with a record
 
-    tie %dns, 'Tie::DNS', {all_fields => 'true'};
+    tie my %dns, 'Tie::DNS', {all_fields => 'true'};
     my $dns_ref = $dns{'cnn.com'};
     print $dns_ref->{'ttl'}, "\n";
 
@@ -493,7 +493,7 @@ nameserver is used instead of the default one.
 
 =head2 Changing various arguments to the tie on the fly
 
-    tie %dns, 'Tie::DNS', {type => 'SOA'};
+    tie my %dns, 'Tie::DNS', {type => 'SOA'};
     print "$dns{'cnn.com'}\n";
 
     tied(%dns)->args({type => 'A'});
@@ -507,7 +507,7 @@ changes the default mode to A queries, and displays that.
 Assign into the hash, key DNS name, value IP address, to add a record
 to the zone in the domain argument.  For instance:
 
-    tie %dns, 'Tie::DNS', {
+    tie my %dns, 'Tie::DNS', {
         domain => 'realms.lan',
         multiple => 'true'
     };
@@ -566,7 +566,7 @@ in-addr.arpa zone transfers aren't yet supported.
 Patches, flames, opinions, enhancement ideas are all welcome.
 
 =head1 COPYRIGHT 
-Copyright (c) 2009,2013 Dana M. Diederich. All Rights Reserved.
+Copyright (c) 2009,2013,2015 Dana M. Diederich. All Rights Reserved.
 This module is free software. It may be used, redistributed
 and/or modified under the terms of the Perl Artistic License
   (see http://www.perl.com/perl/misc/Artistic.html)
